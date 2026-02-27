@@ -40,14 +40,23 @@ jobs:
     environment: dev
 
     steps:
+      - name: Checkout                    # el repo no existe hasta que lo checkouts
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies        # wrangler necesita node_modules
+        run: npm ci
+
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
           name: dist
           path: dist/
-      
-      - name: Debug - List dist contents   # <-- agrega esto
-        run: find dist/ -type f
 
       - name: Deploy-Dev
         uses: cloudflare/wrangler-action@v3
