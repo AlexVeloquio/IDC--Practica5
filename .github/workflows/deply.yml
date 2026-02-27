@@ -49,6 +49,6 @@ jobs:
       - name: Deploy-Dev
         uses: cloudflare/wrangler-action@v3
         with:
-          apiTtoken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy dist/Practice4/index.js --name arv-practica5 --compatibility-date 2026-02-26 --compatibility-flags=nodejs_compat --assets-dir dist/Practice4/client
+          command: deploy dist/Practice4/index.js --name arv-practica5 --compatibility-date 2026-02-26 --compatibility-flags=nodejs_compat --assets dist/client
