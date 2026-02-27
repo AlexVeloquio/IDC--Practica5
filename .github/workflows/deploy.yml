@@ -45,6 +45,9 @@ jobs:
         with:
           name: dist
           path: dist/
+      
+      - name: Debug - List dist contents   # <-- agrega esto
+        run: find dist/ -type f
 
       - name: Deploy-Dev
         uses: cloudflare/wrangler-action@v3
