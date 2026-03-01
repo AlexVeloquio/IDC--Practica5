@@ -56,7 +56,7 @@ jobs:
   
   release-prod:
     name: CD-Prod
-    needs: release-dev
+    needs: release
     runs-on: ubuntu-latest
     environment: prod
 
